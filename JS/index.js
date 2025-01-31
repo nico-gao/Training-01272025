@@ -1,3 +1,4 @@
+// ================================= JS1 =================================
 /**
  * primitive data types
  *
@@ -143,14 +144,167 @@
 // };
 
 // closure
-function add() {
-  let count = 0;
-  return function () {
-    count += 1;
-    console.log(count);
-  };
+// function add() {
+//   let count = 0;
+//   return function () {
+//     count += 1;
+//     console.log(count);
+//   };
+// }
+
+// const returnedFn = add();
+// returnedFn();
+// returnedFn();
+
+// ================================= JS2 =================================
+// ES 6 - ECMAScript 2015
+
+// rest operator, spread operator, destrucutring, arrow function, string template
+
+// rest operator ...: collect arguments and put them into one array
+
+// function foo(val1, val2, ...args) {
+//   console.log(val1, val2);
+//   console.log(args);
+//   // console.log(arguments); // array-like object
+// }
+
+// foo(1, 2, 3, 4, 5);
+
+// spread operator ...
+// shallow copy: the properties will point to the same reference as the original one (objects)
+// deep copy:
+// 1. write your own function
+// 2. lodash
+// 3. JSON.stringify()
+
+// const person = {
+//   name: "alice",
+//   age: 18,
+//   address: {
+//     apt: 123123,
+//     street: "street",
+//     city: "xxx",
+//   },
+//   date: new Date(),
+// };
+
+// const person2 = {
+//   name: person.name,
+//   age: person.age,
+//   address: person.address,
+// };
+
+// const person3 = { ...person, name: "bob", foo: 1 };
+// console.log(person, person3);
+// const person3 = JSON.parse(JSON.stringify(person));
+
+// console.log(person3);
+// console.log(person.address === person3.address);
+
+// const arr = [1, 2, 3, [0, 0]];
+// const arr1 = [5, 6, 7];
+// const arr2 = [...arr, 1, ...arr1, 0];
+// console.log(arr2);
+
+// destrucutring
+
+// const person = {
+//   name: "alice",
+//   age: 18,
+//   address: {
+//     apt: 123123,
+//     street: "street",
+//     city: "xxx",
+//   },
+//   date: new Date(),
+// };
+
+// const name = person.name;
+// const age = person.age;
+// const city = person.address.city;
+
+// const name = "1";
+// const { name: personName, age, address } = person;
+// console.log(name, personName, age);
+// console.log(address === person.address);
+
+/**
+ *          function keyword vs arrow function
+ * 1. syntax
+ * 2. this keyword: it depends on the calling context, it refers to the caller of the function
+ * 3. arguments
+ * 4. prototype
+ */
+
+// const obj = {
+//   name: "alice",
+//   thisValue: this,
+//   foo() {
+//     // this is equvalent to function keyword
+//     console.log(this.thisValue); // obj
+//   },
+//   foo2: () => {
+//     console.log(this); // window, line 240
+//   },
+// };
+
+// bind
+// foo2();
+
+// obj.foo2();
+// console.log(window.obj.thisValue); // window
+
+// const obj = {
+//   name: "alice",
+//   foo() {
+//     console.log(this);
+//     function foo2() {
+//       console.log(this);
+//     }
+//     foo2();
+//     // return foo2;
+//   },
+// };
+
+// const foo2 = obj.foo();
+// foo2();
+
+// const module = {
+//   x: 42,
+//   getX: function () {
+//     return this.x;
+//   },
+// };
+
+// const unboundGetX = module.getX;
+// console.log(unboundGetX()); // The function gets invoked at the global scope
+// // Expected output: undefined
+
+// const boundGetX = unboundGetX.bind(module);
+// console.log(boundGetX());
+// // Expected output: 42
+
+// const age = 18;
+// console.log(`the age is: ${age}. adjasdasdasd`);
+
+// for ... of ... (ES6)
+// iterable objects: array, Map, Set, NodeList, string
+
+const arr = [1, 2, 3];
+const obj = {
+  a: 1,
+  b: 2,
+  c: 3,
+};
+
+for (ele of Object.keys(obj)) {
+  console.log(ele);
 }
 
-const returnedFn = add();
-returnedFn();
-returnedFn();
+// for ... in ...
+// enumerable properties on an object
+// anything not enumerable will be ignored in the loop
+for (ele in obj) {
+  console.log(ele);
+}
