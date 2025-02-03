@@ -291,20 +291,179 @@
 // for ... of ... (ES6)
 // iterable objects: array, Map, Set, NodeList, string
 
-const arr = [1, 2, 3];
-const obj = {
-  a: 1,
-  b: 2,
-  c: 3,
+// const arr = [1, 2, 3];
+// const obj = {
+//   a: 1,
+//   b: 2,
+//   c: 3,
+// };
+
+// for (ele of Object.keys(obj)) {
+//   console.log(ele);
+// }
+
+// // for ... in ...
+// // enumerable properties on an object
+// // anything not enumerable will be ignored in the loop
+// for (ele in obj) {
+//   console.log(ele);
+// }
+
+// ================================= JS3 =================================
+
+// const p = {
+//   greeting() {
+//     console.log(`hello from ${this.name}`);
+//   },
+// };
+
+// const person = {
+//   name: "alice",
+//   __proto__: p, // person -> p (has the greeting method)
+// };
+
+// person.greeting();
+// console.log(person);
+
+// const person2 = {
+//   name: "bob",
+//   greeting: "hello",
+//   __proto__: p,
+// };
+
+// console.log(person2.greeting);
+
+// const p1 = {
+//   greeting() {
+//     console.log(`hello from ${this.name}`);
+//   },
+// };
+
+// const person = Object.create(p1);
+// console.log(person === p1);
+
+// constructor function
+// function Person(name) {
+//   this.name = name;
+// }
+
+// const person1 = new Person("alice");
+// const person2 = new Person("bob");
+// console.log(person1, person2);
+
+// // factory function
+// function Person2(name) {
+//   const obj = {};
+//   obj.name = name;
+//   obj.greeting = function () {
+//     console.log(`hello from ${this.name}`);
+//   };
+//   return obj;
+// }
+
+// const p1 = Person2("alice");
+// const p2 = Person2("alice");
+// console.log(p1.greeting === p2.greeting);
+
+// class keyword is a syntax sugar in javascript
+// encapsulation, inheritance, polymorphism, abstraction
+// encapsulation - hide some information from the public
+// inheritance
+// polymorphism
+//      - no overloading in javascript (same name, different arguments),
+//      - overriding (same method in parent class and child class, but different implementation)
+// abstraction - hiding the complexity behind API
+
+// class Person {
+//   #age;
+//   static count = 0;
+//   constructor(name, age) {
+//     this.name = name;
+//     this.#age = age;
+//     Person.count++;
+//   }
+
+//   greeting() {
+//     console.log(`hello from ${this.name}`);
+//   }
+
+//   static getCount() {
+//     return Person.count;
+//   }
+
+//   set age(newAge) {
+//     this.#age = newAge;
+//   }
+
+//   get age() {
+//     console.log("getter");
+//     return this.#age;
+//   }
+// }
+
+// const p1 = new Person("alice", 18);
+// p1.age = 10;
+// console.log(p1.age);
+
+// class Student extends Person {
+//   constructor(name, age, id) {
+//     super(name, age);
+//     this.id = id;
+//   }
+
+//   greeting() {
+//     console.log(`hello from student ${this.name}`);
+//   }
+// }
+
+// const s1 = new Student("bob", 18, 1);
+// console.log(s1);
+// s1.greeting();
+// p1.greeting();
+
+// // instance methods vs static methods
+
+// // to create an instance method
+// // 1. add it to the class
+// // 2. use __proto__ and prototype
+
+// p1.__proto__.walk = function () {
+//   // adding walk function to Person
+//   console.log(`${this.name} is walking...`);
+// };
+// p1.walk();
+// s1.walk();
+
+// Person.prototype.run = function () {
+//   // adding run function to Person
+//   console.log(`${this.name} is running...`);
+// };
+
+// p1.run();
+// s1.run();
+
+// static methods - called directly on the prototype object/construcntor function/class
+// they are usually utility functions
+
+// console.log(Person.getCount());
+
+const arr = [1, 2, 3, 4, 5];
+console.log(arr);
+
+arr.__proto__.myForEach = function (cb) {
+  for (let i = 0; i < this.length; i++) {
+    cb(this[i], i, this);
+  }
 };
 
-for (ele of Object.keys(obj)) {
-  console.log(ele);
-}
+arr.myForEach((value, index, array) => {
+  console.log(value, index, array);
+});
 
-// for ... in ...
-// enumerable properties on an object
-// anything not enumerable will be ignored in the loop
-for (ele in obj) {
-  console.log(ele);
-}
+// today's assignment: implement array methods
+// fill, filter, map, reduce, find, slice, splice, push, pop, join
+
+const arr2 = [5, 6, 7, 8];
+arr2.myForEach((value, index, array) => {
+  console.log(value, index, array);
+});
