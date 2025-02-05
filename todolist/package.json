@@ -1,0 +1,18 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "live-server": "live-server --ignore=./db.json .",
+    "json-server": "npx json-server db.json",
+    "start": "npm run json-server & npm run live-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3",
+    "live-server": "^1.2.2"
+  }
+}

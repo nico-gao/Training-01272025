@@ -23,3 +23,14 @@
  * Javascript in browser: ECMAScript + WebAPI
  * Javacript in node: ECMAScript + NodeAPI
  */
+
+/**
+ * Critical rendering path
+ * The steps that your browser will take to render a webpage
+ *
+ * 1. parse the HTML, build DOM
+ * 2. parsing CSS, build CSSOM
+ * 3. combine DOM and CSSOM, create the render tree
+ * 4. layout calculation
+ * 5. painting
+ */

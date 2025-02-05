@@ -447,23 +447,59 @@
 
 // console.log(Person.getCount());
 
-const arr = [1, 2, 3, 4, 5];
-console.log(arr);
+// const arr = [1, 2, 3, 4, 5];
+// console.log(arr);
 
-arr.__proto__.myForEach = function (cb) {
-  for (let i = 0; i < this.length; i++) {
-    cb(this[i], i, this);
-  }
-};
+// arr.__proto__.myForEach = function (cb) {
+//   for (let i = 0; i < this.length; i++) {
+//     cb(this[i], i, this);
+//   }
+// };
 
-arr.myForEach((value, index, array) => {
-  console.log(value, index, array);
-});
+// arr.myForEach((value, index, array) => {
+//   console.log(value, index, array);
+// });
 
-// today's assignment: implement array methods
-// fill, filter, map, reduce, find, slice, splice, push, pop, join
+// // today's assignment: implement array methods
+// // fill, filter, map, reduce, find, slice, splice, push, pop, join
 
-const arr2 = [5, 6, 7, 8];
-arr2.myForEach((value, index, array) => {
-  console.log(value, index, array);
-});
+// const arr2 = [5, 6, 7, 8];
+// arr2.myForEach((value, index, array) => {
+//   console.log(value, index, array);
+// });
+
+// IIFE (immediately invoked function expression)
+
+// const data = (function () {
+//   function getData() {
+//     return 1;
+//   }
+
+//   function setData() {}
+
+//   return {
+//     getData,
+//     setData,
+//   };
+// })();
+
+// console.log(data);
+
+// currying
+
+// function add(a) {
+//   return function (b) {
+//     return a + b;
+//   };
+// }
+
+// const addTwo = add(5); // First function call with 5
+// console.log(addTwo(4));
+
+// console.log(add(1)(2));
+
+// // filters, year, mileage
+// const returned = filter(2021)
+// returned(10)
+// returned(20)
+// returned(30)
