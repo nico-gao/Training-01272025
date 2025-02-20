@@ -31,4 +31,8 @@
  *
  * extension
  * .js  .jsx
+ *
+ *
+ * npm
+ * node package manager
  */
