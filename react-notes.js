@@ -5,10 +5,9 @@
  * component based architecture
  * divide the UI into reusable components
  *
- * virtual DOM
+ * virtual DOM (reconciliation, diffing algorithm)
  * a lightweight copy of the actual DOM
- * if changes happen, react will first compare the previous version of the virtual DOM with the updated version of the virtual DOM,
- * find where the changes happen, after that, react will only make the necessary changes to the actual DOM
+ * reconciliation: if changes happen, react will (use diffing algorithm) first compare the previous version of the virtual DOM with the updated version of the virtual DOM, find where the changes happen, after that, react will only make the necessary changes to the actual DOM
  *
  * one way data flow, parents to children
  * props (from parent component), state (is managed inside of the component)
@@ -35,4 +34,15 @@
  *
  * npm
  * node package manager
+ *
+ *
+ * react lifecycle methods
+ *
+ * class components
+ *
+ * functional components, 16.8 2020
+ *
+ * difference: state management, lifecycle methods vs hooks, syntax, this
+ *
+ *
  */

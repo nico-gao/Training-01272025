@@ -2,6 +2,7 @@ import { useState } from "react";
 import Counter from "./components/Counter/Counter";
 import TodoList from "./components/Todo/TodoList";
 import Timer from "./components/Timer";
+import ClassComponent from "./components/ClassComponents/ClassComponent";
 
 function App() {
   const [show, setShow] = useState(true);
@@ -17,8 +18,11 @@ function App() {
       <Counter name={name} /> */}
       {/* <button onClick={() => setShow(!show)}>toggle timer</button>
       {show && <Timer />} */}
-      <button onClick={() => setCount(count + 1)}>add count</button>
-      {show && <TodoList count={count} />}
+      {/* <button onClick={() => setCount(count + 1)}>add count</button>
+      {show && <TodoList count={count} />} */}
+
+      <button onClick={() => setShow(!show)}>toggle class component</button>
+      {show && <ClassComponent />}
     </>
   );
 }

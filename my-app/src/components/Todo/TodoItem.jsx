@@ -1,6 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 
-const TodoItem = React.memo(({ handleDelete }) => {
+// hoc
+const TodoItem = memo(({ handleDelete }) => {
   console.log("Todo Item renders");
   return (
     <li>

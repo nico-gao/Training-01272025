@@ -40,6 +40,7 @@ const TodoList = ({ count }) => {
     },
     [setTodos]
   );
+
   const deleteFnRef = useRef(handleDelete);
   console.log("delete function", handleDelete === deleteFnRef.current);
 
