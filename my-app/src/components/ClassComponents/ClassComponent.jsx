@@ -79,11 +79,11 @@ class Foo {
   }
 }
 
-const foo = new Foo();
-foo.hi(); // foo instance
+// const foo = new Foo();
+// foo.hi(); // foo instance
 
-const fn = foo.hi;
-fn(); // window/undefined
+// const fn = foo.hi;
+// fn(); // window/undefined
 
 // shallow comparison: loop through the objs to check if they have the same reference
 const obj1 = {
@@ -108,4 +108,4 @@ const obj2 = {
 // loose comparison ==
 // strict comparison ===
 
-console.log(obj1 == obj2); // false
+// console.log(obj1 == obj2); // false

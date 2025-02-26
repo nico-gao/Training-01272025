@@ -45,4 +45,14 @@
  * difference: state management, lifecycle methods vs hooks, syntax, this
  *
  *
+ *
+ * immutability
+ * something that doesn't change
+ *
+ *
+ * CarApp
+ * Car
+ * CarInfo
+ * SellButton
+ *
  */
