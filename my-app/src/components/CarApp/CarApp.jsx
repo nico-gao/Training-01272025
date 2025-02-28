@@ -1,6 +1,7 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import Car from "./Car";
+import { CounterContext } from "../../context/CounterContext";
 
 const mockCarData = [
   {
@@ -47,29 +48,35 @@ export default class CarApp extends React.Component {
   };
 
   render() {
+    console.log("car app rendered");
     const totalQuantity = this.state.cars.reduce((acc, cur) => {
       return acc + cur.quantity;
     }, 0);
     return (
-      <ul
-        className="car-app"
-        style={{
-          display: "flex",
-          width: "100%",
-          flexDirection: "row",
-          justifyContent: "center",
-          gap: "50px",
-        }}
-      >
-        <li key="total">Total quantity: {totalQuantity}</li>
-        {this.state.cars.map((car, index) => (
-          <Car
-            key={car.id}
-            car={car}
-            handleSell={() => this.handleSell(index)}
-          />
-        ))}
-      </ul>
+      <>
+        {/* <CounterContext.Consumer>
+          {({ count }) => <div>Car App Counter: {count}</div>}
+        </CounterContext.Consumer> */}
+        <ul
+          className="car-app"
+          style={{
+            display: "flex",
+            width: "100%",
+            flexDirection: "row",
+            justifyContent: "center",
+            gap: "50px",
+          }}
+        >
+          <li key="total">Total quantity: {totalQuantity}</li>
+          {this.state.cars.map((car, index) => (
+            <Car
+              key={car.id}
+              car={car}
+              handleSell={() => this.handleSell(index)}
+            />
+          ))}
+        </ul>
+      </>
     );
   }
 }

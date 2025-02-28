@@ -1,5 +1,12 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useCallback,
+  useContext,
+} from "react";
 import TodoItem from "./TodoItem";
+import { CounterContext } from "../../context/CounterContext";
 
 const mockTodoData = [
   {
@@ -19,6 +26,8 @@ const mockTodoData = [
 const TodoList = ({ count }) => {
   const [todos, setTodos] = useState([]);
   const inputRef = useRef(null);
+
+  const { setCount } = useContext(CounterContext);
 
   // useCallback;
   const handleAdd = useCallback(() => {
@@ -51,6 +60,7 @@ const TodoList = ({ count }) => {
   return (
     <div>
       Count: {count}
+      <button onClick={() => setCount(10)}>set count to 10</button>
       <div>
         <input ref={inputRef} />
         <button onClick={handleAdd}>Add todo</button>

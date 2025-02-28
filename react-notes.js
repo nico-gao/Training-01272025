@@ -55,4 +55,14 @@
  * CarInfo
  * SellButton
  *
+ *
+ * ConextAPI: example (theme, language, user authentication)
+ * createContext
+ * useContext
+ * provider
+ * consumer
+ *
+ * useReducer
+ *
+ *
  */
