@@ -7,6 +7,7 @@ import React, {
 } from "react";
 import TodoItem from "./TodoItem";
 import { CounterContext } from "../../context/CounterContext";
+import withCounter from "../../hoc/withCounter";
 
 const mockTodoData = [
   {
@@ -23,18 +24,19 @@ const mockTodoData = [
   },
 ];
 
-const TodoList = ({ count }) => {
+const TodoList = ({ count, handleAdd }) => {
+  console.log(count);
   const [todos, setTodos] = useState([]);
   const inputRef = useRef(null);
 
   const { setCount } = useContext(CounterContext);
 
   // useCallback;
-  const handleAdd = useCallback(() => {
-    console.log("handle add function");
-    setTodos([...todos, { id: todos.length, content: inputRef.current.value }]);
-    inputRef.current.value = "";
-  }, [setTodos]);
+  // const handleAdd = useCallback(() => {
+  //   console.log("handle add function");
+  //   setTodos([...todos, { id: todos.length, content: inputRef.current.value }]);
+  //   inputRef.current.value = "";
+  // }, [setTodos]);
 
   // const handleAdd = () => {
   //   setTodos([...todos, { id: todos.length, content: inputRef.current.value }]);
@@ -60,7 +62,7 @@ const TodoList = ({ count }) => {
   return (
     <div>
       Count: {count}
-      <button onClick={() => setCount(10)}>set count to 10</button>
+      <button onClick={() => handleAdd()}>add one</button>
       <div>
         <input ref={inputRef} />
         <button onClick={handleAdd}>Add todo</button>
@@ -76,4 +78,4 @@ const TodoList = ({ count }) => {
   );
 };
 
-export default TodoList;
+export default withCounter(TodoList);

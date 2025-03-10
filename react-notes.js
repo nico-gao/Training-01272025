@@ -65,4 +65,8 @@
  * useReducer
  *
  *
+ * hoc: states in hoc are independent
+ * context: states are shared
+ *
+ * custom hook: reuse logic in functional components
  */

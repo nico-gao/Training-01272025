@@ -1,4 +1,7 @@
 import React from "react";
+import withCounter from "../../hoc/withCounter";
+
+// hoc : allow us to reuse logic across multiple components
 
 // PureComponent: it provides a default shouldComponentUpdate
 class ClassComponent extends React.Component {
@@ -8,9 +11,9 @@ class ClassComponent extends React.Component {
     super(props);
 
     // state initilization
-    this.state = {
-      count: 0,
-    };
+    // this.state = {
+    //   count: 0,
+    // };
 
     // bind methods
     // this.handleAdd = this.handleAdd.bind(this);
@@ -28,19 +31,20 @@ class ClassComponent extends React.Component {
   //   });
   // }
 
-  handleAdd = () => {
-    this.setState({
-      count: this.state.count + 1,
-    });
-  };
+  // handleAdd = () => {
+  //   this.setState({
+  //     count: this.state.count + 1,
+  //   });
+  // };
 
   render() {
     console.log("render");
+    console.log(this.props);
     return (
       <div>
         class component
-        <div>Count: {this.state.count}</div>
-        <button onClick={this.handleAdd}>Add to count</button>
+        <div>Count: {this.props.count}</div>
+        <button onClick={this.props.handleAdd}>Add to count</button>
       </div>
     );
   }
@@ -66,12 +70,12 @@ class ClassComponent extends React.Component {
   // manipulate DOM
   // localstorage
 
-  shouldComponentUpdate(nextProps, nextState) {
-    // by default, React will do a shallow comparison on the props and states to determine whether the component needs a re-render
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   // by default, React will do a shallow comparison on the props and states to determine whether the component needs a re-render
+  // }
 }
 
-export default ClassComponent;
+export default withCounter(ClassComponent);
 
 class Foo {
   hi() {

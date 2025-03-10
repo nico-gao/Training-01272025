@@ -11,12 +11,12 @@ import ReducerCounter from "./components/Counter/ReducerCounter";
 function App() {
   const [show, setShow] = useState(true);
   const [name, setName] = useState("alice");
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const handleNameChange = () => {
     setName(name === "alice" ? "bob" : "alice");
   };
   return (
-    // JSX
+    // JSX, createElement()
     <div
       className="app"
       style={{
@@ -27,21 +27,26 @@ function App() {
         justifyContent: "center",
       }}
     >
+      {babel}
+      {createElement("h1", { className: "greeting" }, "Hello")}
+      <h1 className="greeting">Hello</h1>
+
       {/* <button onClick={handleNameChange}>change name</button> */}
       {/* <CounterProvider> */}
-      {/* <Counter name={name} /> */}
+      <Counter name={name} />
       {/* </CounterProvider> */}
       {/* <button onClick={() => setShow(!show)}>toggle timer</button>
       {show && <Timer />} */}
       {/* <button onClick={() => setCount(count + 1)}>add count</button> */}
-      {/* {show && <TodoList count={count} />} */}
+      {/* {show && <TodoList />} */}
 
-      {/* <button onClick={() => setShow(!show)}>toggle class component</button>
-      {show && <ClassComponent />} */}
+      {/* <button onClick={() => setShow(!show)}>toggle class component</button> */}
+      {/* {show && <ClassComponent a={1} />} */}
+      {/* => NewComponent */}
 
-      <Context />
-      <CarApp />
-      <ReducerCounter />
+      {/* <Context /> */}
+      {/* <CarApp /> */}
+      {/* <ReducerCounter /> */}
     </div>
   );
 }

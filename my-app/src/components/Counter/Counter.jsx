@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import useCounter from "../../hooks/useCounter";
+import useLogger from "../../hooks/useLogger";
 
 // what triggers component update
 // state change
@@ -7,13 +9,18 @@ import { useEffect, useState } from "react";
 export default function Counter(props) {
   // useState: initial value as argument, returns two elements in an array
   // state is immutable, use set state function to update
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+  const [count, handleAdd] = useCounter();
   const [count2, setCount2] = useState(0);
+
+  useLogger(count2);
+  useLogger(count);
 
   console.log(props.name);
 
   const handleClick = () => {
-    setCount(count + 1); // async, batch update -> 0 + 1
+    handleAdd();
+    // setCount(count + 1); // async, batch update -> 0 + 1
     // setCount(count + 1); // 0 + 1
     // setCount((prev) => {
     //   // react makes sure the previous value you receive in the callback function is the most updated one
