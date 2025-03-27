@@ -1,0 +1,40 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.autocomplete {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 200px;
+}
+
+.suggestions {
+    border: 1px solid black;
+}
+
+.suggestions ul {
+    list-style-type: none;
+    padding: 0;
+
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.suggestions li {
+    padding: 3px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background-color: aquamarine;
+}
